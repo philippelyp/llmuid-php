@@ -1,0 +1,31 @@
+{
+    "name": "philippelyp/llmuid",
+    "description": "Identifiers designed to survive being read, copied and re-emitted by language models",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "identifier",
+        "llm",
+        "checksum",
+        "error-correction",
+        "damerau-levenshtein"
+    ],
+    "homepage": "https://github.com/philippelyp/llmuid",
+    "authors": [
+        {
+            "name": "Philippe Paquet"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/philippelyp/llmuid-php/issues",
+        "docs": "https://github.com/philippelyp/llmuid/blob/main/llmuid.md"
+    },
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LLMUID\\": "src/"
+        }
+    }
+}

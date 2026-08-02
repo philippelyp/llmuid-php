@@ -1,0 +1,148 @@
+{
+    "scheme": 1,
+    "file": "distance.json",
+    "description": "Bounded Damerau-Levenshtein distance. Pins the transposition price and the limit + 1 saturation.",
+    "note": "Generated once from the PHP reference implementation, hand-reviewed against llmuid.md, and frozen. Regenerating is a scheme version change.",
+    "cases": [
+        {
+            "label": "identical",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XR9DQ2",
+            "limit": 2,
+            "distance": 0
+        },
+        {
+            "label": "one substitution",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XB9DQ2",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "two substitutions adjacent",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3BB9DQ2",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "two substitutions apart",
+            "a": "K7M3XR9DQ2",
+            "b": "B7M3XR9DQ3",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "three substitutions",
+            "a": "K7M3XR9DQ2",
+            "b": "BBB3XR9DQ2",
+            "limit": 2,
+            "distance": 3
+        },
+        {
+            "label": "adjacent transposition",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3RX9DQ2",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "transposition at the start",
+            "a": "K7M3XR9DQ2",
+            "b": "7KM3XR9DQ2",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "transposition at the end",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XR9D2Q",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "non adjacent transposition",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3DR9XQ2",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "one insertion",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XZR9DQ2",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "two insertions",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XZZR9DQ2",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "one deletion",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3X9DQ2",
+            "limit": 2,
+            "distance": 1
+        },
+        {
+            "label": "two deletions",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M39DQ2",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "substitution and insertion",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XB9DQZ2",
+            "limit": 2,
+            "distance": 2
+        },
+        {
+            "label": "unrelated",
+            "a": "K7M3XR9DQ2",
+            "b": "T5VQ2BNHCC",
+            "limit": 2,
+            "distance": 3
+        },
+        {
+            "label": "empty against full",
+            "a": "",
+            "b": "K7M3XR9DQ2",
+            "limit": 2,
+            "distance": 3
+        },
+        {
+            "label": "bounded at limit 1",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3BB9DQ2",
+            "limit": 1,
+            "distance": 2
+        },
+        {
+            "label": "bounded at limit 0",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3XB9DQ2",
+            "limit": 0,
+            "distance": 1
+        },
+        {
+            "label": "bounded at limit 4",
+            "a": "K7M3XR9DQ2",
+            "b": "T5VQ2BNHCC",
+            "limit": 4,
+            "distance": 5
+        },
+        {
+            "label": "length gap exceeds limit",
+            "a": "K7M3XR9DQ2",
+            "b": "K7M3",
+            "limit": 2,
+            "distance": 3
+        }
+    ]
+}

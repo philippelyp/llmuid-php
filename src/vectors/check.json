@@ -1,0 +1,298 @@
+{
+    "scheme": 1,
+    "file": "check.json",
+    "description": "Payload and context in, the two check symbols out. Pins the context digest and the position-weighted sums.",
+    "note": "Generated once from the PHP reference implementation, hand-reviewed against llmuid.md, and frozen. Regenerating is a scheme version change.",
+    "cases": [
+        {
+            "payload": "K7M3XR9D",
+            "context": "",
+            "check": "CN"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "invoice",
+            "check": "QV"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "INVOICE",
+            "check": "QV"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "  invoice  ",
+            "check": "QV"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "invoice line",
+            "check": "1D"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "invoice \t\n line",
+            "check": "1D"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "Invoice   Line",
+            "check": "1D"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "a",
+            "check": "1V"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "0",
+            "check": "Z1"
+        },
+        {
+            "payload": "K7M3XR9D",
+            "context": "long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context ",
+            "check": "W9"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "",
+            "check": "2R"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "invoice",
+            "check": "DZ"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "INVOICE",
+            "check": "DZ"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "  invoice  ",
+            "check": "DZ"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "invoice line",
+            "check": "QH"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "invoice \t\n line",
+            "check": "QH"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "Invoice   Line",
+            "check": "QH"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "a",
+            "check": "QZ"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "0",
+            "check": "N4"
+        },
+        {
+            "payload": "T5VQ2BNH",
+            "context": "long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context ",
+            "check": "KD"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "",
+            "check": "5G"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "invoice",
+            "check": "HP"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "INVOICE",
+            "check": "HP"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "  invoice  ",
+            "check": "HP"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "invoice line",
+            "check": "T7"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "invoice \t\n line",
+            "check": "T7"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "Invoice   Line",
+            "check": "T7"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "a",
+            "check": "TP"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "0",
+            "check": "RV"
+        },
+        {
+            "payload": "9WC4KZFM",
+            "context": "long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context ",
+            "check": "P4"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "",
+            "check": "ZQ"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "invoice",
+            "check": "9X"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "INVOICE",
+            "check": "9X"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "  invoice  ",
+            "check": "9X"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "invoice line",
+            "check": "MG"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "invoice \t\n line",
+            "check": "MG"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "Invoice   Line",
+            "check": "MG"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "a",
+            "check": "MX"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "0",
+            "check": "J3"
+        },
+        {
+            "payload": "P0JD8SRT",
+            "context": "long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context ",
+            "check": "GC"
+        },
+        {
+            "payload": "43969298",
+            "context": "",
+            "check": "62"
+        },
+        {
+            "payload": "43969298",
+            "context": "invoice",
+            "check": "J8"
+        },
+        {
+            "payload": "43969298",
+            "context": "INVOICE",
+            "check": "J8"
+        },
+        {
+            "payload": "43969298",
+            "context": "  invoice  ",
+            "check": "J8"
+        },
+        {
+            "payload": "43969298",
+            "context": "invoice line",
+            "check": "VT"
+        },
+        {
+            "payload": "43969298",
+            "context": "invoice \t\n line",
+            "check": "VT"
+        },
+        {
+            "payload": "43969298",
+            "context": "Invoice   Line",
+            "check": "VT"
+        },
+        {
+            "payload": "43969298",
+            "context": "a",
+            "check": "V8"
+        },
+        {
+            "payload": "43969298",
+            "context": "0",
+            "check": "SF"
+        },
+        {
+            "payload": "43969298",
+            "context": "long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context long context ",
+            "check": "QQ"
+        },
+        {
+            "payload": "00000000",
+            "context": "",
+            "check": "00"
+        },
+        {
+            "payload": "00000000",
+            "context": "invoice",
+            "check": "B6"
+        },
+        {
+            "payload": "ZZZZZZZZ",
+            "context": "",
+            "check": "HR"
+        },
+        {
+            "payload": "ZZZZZZZZ",
+            "context": "invoice",
+            "check": "VZ"
+        },
+        {
+            "payload": "0000000Z",
+            "context": "",
+            "check": "2Z"
+        },
+        {
+            "payload": "0000000Z",
+            "context": "invoice",
+            "check": "D5"
+        },
+        {
+            "payload": "Z0000000",
+            "context": "",
+            "check": "9Q"
+        },
+        {
+            "payload": "Z0000000",
+            "context": "invoice",
+            "check": "NX"
+        }
+    ]
+}

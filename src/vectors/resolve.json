@@ -1,0 +1,296 @@
+{
+    "scheme": 1,
+    "file": "resolve.json",
+    "description": "The damage contract end to end. Each group carries the registry its expectations assume.",
+    "note": "Generated once from the PHP reference implementation, hand-reviewed against llmuid.md, and frozen. Regenerating is a scheme version change.",
+    "groups": [
+        {
+            "name": "empty context, one damage event",
+            "description": "One damage event of each kind against a registry minted under the empty context, plus the two length failures and two fabrications -- one the checksum catches and one it does not.",
+            "registry": [
+                "K7-M3-XR-9D-CN",
+                "T5-VQ-2B-NH-2R",
+                "9W-C4-KZ-FM-5G",
+                "P0-JD-8S-RT-ZQ"
+            ],
+            "cases": [
+                {
+                    "label": "pristine",
+                    "candidate": "K7-M3-XR-9D-CN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "delimiters stripped",
+                    "candidate": "K7M3XR9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "spaces for delimiters",
+                    "candidate": "K7 M3 XR 9D CN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "lowercased",
+                    "candidate": "k7-m3-xr-9d-cn",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "backtick wrapper",
+                    "candidate": "`k7-m3-xr-9d-cn`",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "quoted and punctuated",
+                    "candidate": "\"K7-M3-XR-9D-CN\".",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "prose is not extracted",
+                    "candidate": "id `k7-m3-xr-9d-cn` here",
+                    "context": "",
+                    "expect": null,
+                    "error": "Too long to be one damage event: 13 symbols, expected 10"
+                },
+                {
+                    "label": "single substitution",
+                    "candidate": "K7M3BR9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "two symbol burst",
+                    "candidate": "K7M3BC9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "adjacent transposition",
+                    "candidate": "K7M3RX9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "one insertion",
+                    "candidate": "K7M3BXR9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "one deletion",
+                    "candidate": "K7M3R9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "two insertions",
+                    "candidate": "K7M3BCXR9DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "two deletions",
+                    "candidate": "K7M39DCN",
+                    "context": "",
+                    "expect": "K7-M3-XR-9D-CN",
+                    "error": null
+                },
+                {
+                    "label": "three insertions, too long",
+                    "candidate": "K7M3BCDXR9DCN",
+                    "context": "",
+                    "expect": null,
+                    "error": "Too long to be one damage event: 13 symbols, expected 10"
+                },
+                {
+                    "label": "three deletions, too short",
+                    "candidate": "K7M3DCN",
+                    "context": "",
+                    "expect": null,
+                    "error": "Too short to be one damage event: 7 symbols, expected 10"
+                },
+                {
+                    "label": "three substitutions",
+                    "candidate": "K7M3BCDDCN",
+                    "context": "",
+                    "expect": null,
+                    "error": "Checksum failed and no issued identifier is within 2 edits"
+                },
+                {
+                    "label": "checksum passes, never issued",
+                    "candidate": "ZXWVTSRQCV",
+                    "context": "",
+                    "expect": null,
+                    "error": "Well-formed but never issued: ZXWVTSRQCV"
+                },
+                {
+                    "label": "checksum fails, never issued",
+                    "candidate": "ZXWVTSRQ00",
+                    "context": "",
+                    "expect": null,
+                    "error": "Checksum failed and no issued identifier is within 2 edits"
+                },
+                {
+                    "label": "nothing in the alphabet",
+                    "candidate": "aeiou",
+                    "context": "",
+                    "expect": null,
+                    "error": "Too short to be one damage event: 0 symbols, expected 10"
+                },
+                {
+                    "label": "empty candidate",
+                    "candidate": "",
+                    "context": "",
+                    "expect": null,
+                    "error": "Too short to be one damage event: 0 symbols, expected 10"
+                }
+            ]
+        },
+        {
+            "name": "bound context",
+            "description": "Check symbols bound to a context. The wrong context is its own failure kind and never a repair, and context canonicalization is part of the contract.",
+            "registry": [
+                "K7-M3-XR-9D-1D",
+                "T5-VQ-2B-NH-QH",
+                "9W-C4-KZ-FM-T7"
+            ],
+            "cases": [
+                {
+                    "label": "pristine, right context",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "invoice line",
+                    "expect": "K7-M3-XR-9D-1D",
+                    "error": null
+                },
+                {
+                    "label": "context respelled",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "  Invoice   Line  ",
+                    "expect": "K7-M3-XR-9D-1D",
+                    "error": null
+                },
+                {
+                    "label": "context tab and newline",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "invoice \t\n line",
+                    "expect": "K7-M3-XR-9D-1D",
+                    "error": null
+                },
+                {
+                    "label": "damaged, right context",
+                    "candidate": "K7M3BR9D1D",
+                    "context": "invoice line",
+                    "expect": "K7-M3-XR-9D-1D",
+                    "error": null
+                },
+                {
+                    "label": "pristine, wrong context",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "receipt line",
+                    "expect": null,
+                    "error": "Wrong context: K7-M3-XR-9D-1D was not issued under this context"
+                },
+                {
+                    "label": "pristine, empty context",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "",
+                    "expect": null,
+                    "error": "Wrong context: K7-M3-XR-9D-1D was not issued under this context"
+                },
+                {
+                    "label": "damaged, wrong context",
+                    "candidate": "K7M3BR9D1D",
+                    "context": "receipt line",
+                    "expect": null,
+                    "error": "Wrong context: K7-M3-XR-9D-1D was not issued under this context"
+                },
+                {
+                    "label": "context is not substring safe",
+                    "candidate": "K7-M3-XR-9D-1D",
+                    "context": "invoice",
+                    "expect": null,
+                    "error": "Wrong context: K7-M3-XR-9D-1D was not issued under this context"
+                }
+            ]
+        },
+        {
+            "name": "ambiguity refused",
+            "description": "A pathological registry: two identifiers two edits apart, which minting would never issue and which only the constructor will admit. Everything within reach of both is refused rather than decoded to the nearer one -- including the two entries themselves, which is what the separation invariant exists to prevent.",
+            "registry": [
+                "BB-BB-BB-BB-BB",
+                "BB-BB-BB-BB-CC"
+            ],
+            "cases": [
+                {
+                    "label": "one edit from each",
+                    "candidate": "BBBBBBBBBC",
+                    "context": "",
+                    "expect": null,
+                    "error": "Ambiguous: 2 issued identifiers are within 2 edits"
+                },
+                {
+                    "label": "an entry its neighbour has poisoned",
+                    "candidate": "BBBBBBBBBB",
+                    "context": "",
+                    "expect": null,
+                    "error": "Ambiguous: 2 issued identifiers are within 2 edits"
+                },
+                {
+                    "label": "the other poisoned entry",
+                    "candidate": "BBBBBBBBCC",
+                    "context": "",
+                    "expect": null,
+                    "error": "Ambiguous: 2 issued identifiers are within 2 edits"
+                }
+            ]
+        },
+        {
+            "name": "all digit identifier",
+            "description": "An identifier of digits only, which PHP coerces to an integer registry key. Pins the cast in the registry scan.",
+            "registry": [
+                "43-96-92-98-62",
+                "T5-VQ-2B-NH-2R"
+            ],
+            "cases": [
+                {
+                    "label": "pristine",
+                    "candidate": "43-96-92-98-62",
+                    "context": "",
+                    "expect": "43-96-92-98-62",
+                    "error": null
+                },
+                {
+                    "label": "single substitution",
+                    "candidate": "4396B29862",
+                    "context": "",
+                    "expect": "43-96-92-98-62",
+                    "error": null
+                },
+                {
+                    "label": "one deletion",
+                    "candidate": "439629862",
+                    "context": "",
+                    "expect": "43-96-92-98-62",
+                    "error": null
+                }
+            ]
+        }
+    ]
+}

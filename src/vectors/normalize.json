@@ -1,0 +1,113 @@
+{
+    "scheme": 1,
+    "file": "normalize.json",
+    "description": "Raw input in, the undelimited symbols out. Pins liberal reading and byte-wise uppercasing.",
+    "note": "Generated once from the PHP reference implementation, hand-reviewed against llmuid.md, and frozen. Regenerating is a scheme version change.",
+    "cases": [
+        {
+            "label": "canonical",
+            "input": "K7-M3-XR-9D-Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "lowercase",
+            "input": "k7-m3-xr-9d-q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "mixed case",
+            "input": "k7-M3-xR-9d-Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "no delimiters",
+            "input": "K7M3XR9DQ2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "spaces for hyphens",
+            "input": "K7 M3 XR 9D Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "underscores for hyphens",
+            "input": "K7_M3_XR_9D_Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "en and em dashes",
+            "input": "K7–M3—XR-9D-Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "doubled delimiters",
+            "input": "K7--M3--XR--9D--Q2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "delimiters displaced",
+            "input": "K7M-3XR9-DQ2",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "backtick wrapper",
+            "input": "`K7-M3-XR-9D-Q2`",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "quoted and punctuated",
+            "input": "\"K7-M3-XR-9D-Q2\".",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "embedded in prose",
+            "input": "see invoice K7-M3-XR-9D-Q2 for details",
+            "output": "SNVCK7M3XR9DQ2FRDTS"
+        },
+        {
+            "label": "leading trailing space",
+            "input": "  \tK7-M3-XR-9D-Q2\n",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "lookalikes dropped",
+            "input": "KO-M3-XR-9D-QI",
+            "output": "KM3XR9DQ"
+        },
+        {
+            "label": "letter l dropped",
+            "input": "KL-M3-XR-9D-Q2",
+            "output": "KM3XR9DQ2"
+        },
+        {
+            "label": "vowels dropped",
+            "input": "KEA-M3-XR-9D-Q2",
+            "output": "KM3XR9DQ2"
+        },
+        {
+            "label": "empty",
+            "input": "",
+            "output": ""
+        },
+        {
+            "label": "nothing in the alphabet",
+            "input": "aeiou-lyLY!!",
+            "output": ""
+        },
+        {
+            "label": "digits only",
+            "input": "4396929862",
+            "output": "4396929862"
+        },
+        {
+            "label": "accented latin dropped",
+            "input": "K7-M3-XR-9D-Q2é",
+            "output": "K7M3XR9DQ2"
+        },
+        {
+            "label": "long s is not an s",
+            "input": "K7-M3-XR-9D-Q2ſ",
+            "output": "K7M3XR9DQ2"
+        }
+    ]
+}
