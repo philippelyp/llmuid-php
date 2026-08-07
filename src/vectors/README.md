@@ -3,7 +3,7 @@
 > **This is a copy.** The canonical files live in the specification repository
 > at <https://github.com/philippelyp/llmuid/tree/main/vectors>. Nothing checks
 > it automatically. When the originals change, this copy is refreshed from them
-> and both test suites are re-run.
+> and all three self tests are re-run.
 
 These four files are the answer key every LLMUID implementation is graded
 against. They belong to no single language, which is why they live beside
@@ -38,10 +38,11 @@ implementer can land somewhere plausible and wrong:
   moves a whole damage class outside the repair radius.
 - **Byte-wise case folding.** `normalize.json` ends with U+017F, LATIN SMALL
   LETTER LONG S. PHP's `strtoupper` is byte-wise and leaves it alone, so it is
-  dropped as not being in the alphabet. Python's `str.upper()` turns it into
-  `S`, which *is* in the alphabet — so a port that calls `.upper()` on a decoded
-  string reads an eleventh symbol and turns a pristine identifier into a length
-  failure. Normalize over bytes, or restrict case folding to ASCII.
+  dropped as not being in the alphabet. Python's `str.upper()` and JavaScript's
+  `toUpperCase()` both turn it into `S`, which *is* in the alphabet — so a port
+  that upper-cases a decoded string reads an eleventh symbol and turns a
+  pristine identifier into a length failure. Normalize over bytes, or restrict
+  case folding to ASCII.
 
 ## How to read them
 
@@ -77,6 +78,6 @@ These files were produced mechanically and then reviewed by hand before being
 committed — that review, not the fact that a program produced them, is what
 gives them their authority.
 
-Both implementation repositories carry a copy of this directory. Nothing checks
-the copies automatically; refreshing them is a documented step whenever these
-files change.
+All three implementation repositories carry a copy of this directory. Nothing
+checks the copies automatically; refreshing them is a documented step whenever
+these files change.
